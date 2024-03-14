@@ -51,7 +51,7 @@ public class MessagesController {
         msg.setId(newId);
         messages.put(newId,msg);
         return messages.get(newId);*/
-
+        System.out.println("Saving message");
         return messageRepo.save(msg);
     }
 
