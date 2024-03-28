@@ -11,6 +11,7 @@ public class FailureEvent {
     public void onFailure(AuthenticationFailureBadCredentialsEvent badCredentials) {
         if (badCredentials.getAuthentication() instanceof BearerTokenAuthenticationToken) {
             System.out.println("Bad Token: "+badCredentials.getAuthentication().getDetails());
+            System.out.println("Access Token: "+((BearerTokenAuthenticationToken) badCredentials.getAuthentication()).getToken());
         }
     }
 }
