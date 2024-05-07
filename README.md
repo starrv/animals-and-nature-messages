@@ -1,3 +1,3 @@
 # animals-and-nature-messages
 
-This is a REST API built in Spring Boot for storing emails pertaining to Animals and Nature website.  NOTE:  Due to the cost of hosting, the web application may not be currently available.
+This is a REST API built using Spring Boot for storing emails pertaining to Animals and Nature website.  NOTE:  Due to the cost of hosting, the web application may not be currently available.
