@@ -23,14 +23,6 @@ public class MessagesController {
 
     @GetMapping(value = "/messages")
     public List<Message> messages(){
-        /*List<Message> msgs= new ArrayList<Message>();
-        Collection c=messages.values();
-        Iterator<Message> iterator=c.iterator();
-        while(iterator.hasNext()){
-            msgs.add(iterator.next());
-        }
-        return msgs;*/
-
         System.out.println("Getting messages");
         return messageRepo.findMessagesByNotificationType("Received");
     }
@@ -47,10 +39,6 @@ public class MessagesController {
     @PostMapping("/messages")
     @ResponseStatus(HttpStatus.CREATED)
     public Message addMessage(@RequestBody Message msg){
-        /*long newId=messages.size();
-        msg.setId(newId);
-        messages.put(newId,msg);
-        return messages.get(newId);*/
         System.out.println("Saving message");
         return messageRepo.save(msg);
     }
