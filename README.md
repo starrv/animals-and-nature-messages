@@ -1,3 +1,5 @@
 # Animals and Nature Messages
 
-REST API for email messages pertaining to the Animals and Nature message board.  NOTE:  Due to the cost of hosting, the web application may not be currently available.
+A Spring Boot REST API that provides CRUD operations for emails pertaining to Animals and Nature. AWS SNS and AWS Lambda was used to receive email messages and send the messages to the API. Authorization was built in using OAuth 2.0. The API was hosted on Google Cloud Platform. Please note that this application may not be currently hosted due to the cost of hosting.
+
+
