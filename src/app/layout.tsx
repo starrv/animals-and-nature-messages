@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Auth0 Next.js App",
-  description: "Next.js app with Auth0 authentication",
+  title: "Animals and Nature Messages",
+  description: "Animals and Nature Messages, an administrator dashboard for viewing user feedback pertaining to Animals and Nature",
 };
 
 export default function RootLayout({
