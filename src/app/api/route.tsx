@@ -16,6 +16,7 @@ export async function GET(request: Request) {
     if(!accessToken){
         redirect("/");
     }
+    console.log("Acces")
     console.log("Access Token: ",session.tokenSet.accessToken);
     console.log("Audience: ",session.tokenSet.audience);
     console.log("Requested Scope: ",session.tokenSet.requestedScope);
