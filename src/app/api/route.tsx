@@ -1,7 +1,7 @@
 import { auth0 } from "@/lib/auth0";
 import { redirect} from 'next/navigation';
 
-export async function GET(request: Request) {
+export async function GET() {
     const session = await auth0.getSession();
     const user = session?.user;
     
@@ -16,11 +16,6 @@ export async function GET(request: Request) {
     if(!accessToken){
         redirect("/");
     }
-    console.log("Acces")
-    console.log("Access Token: ",session.tokenSet.accessToken);
-    console.log("Audience: ",session.tokenSet.audience);
-    console.log("Requested Scope: ",session.tokenSet.requestedScope);
-    console.log("Scope: ",session.tokenSet.scope);
 
     const URL="https://animals-and-nature-messages-api.onrender.com/messages";
     const resp=await fetch(URL,{
@@ -33,6 +28,6 @@ export async function GET(request: Request) {
         return new Response(data,{status: 200});
     }
     else{
-        return new Response(JSON.stringify({data: resp.json ? resp.json : resp.statusText}),{status: resp.status});
+        return new Response(JSON.stringify({message: await resp.json()}),{status: resp.status});
     } 
 }
