@@ -2,7 +2,7 @@ class Message{
     id:string;
     content:string;
     notificationType:string;
-    mail:string;
+    mail:Mail;
 
     constructor(id:string,content:string,notificationType:string,mail:Mail=null){
         this.id=id;

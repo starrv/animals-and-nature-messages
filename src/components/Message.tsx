@@ -74,8 +74,13 @@ export default function Message({message}:{message:Message}){
         );
     }
 
+    const date=(new Date(message.mail.timestamp)).toLocaleString();
+
     return(
-        <article className="mx-4 my-4 border rounded p-4">
+        <article className="mx-4 my-4 border rounded p-4 hover:bg-radial from-bg-[#fff] from-40% to-lime-100">
+            <p className='text-center mx-auto'>
+                <span className='font-bold'>Date</span>: {date}
+            </p>
             <p>
                 {format(message.content)}
             </p>
