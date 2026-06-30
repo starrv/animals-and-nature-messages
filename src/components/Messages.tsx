@@ -49,16 +49,18 @@ export default async function Messages(){
             content=<p>No messages</p>
         }
         else{
-            data.map((message:Message)=><Message message={message} key={message.id} />)
+            content=data.map((message:Message)=><Message message={message} key={message.id} />)
         }
     }
     
     return(
-        <section className="mx-auto w-1/2">
-            <h2 className="text-2xl font-bold text-center my-4">
+        <section className="mx-auto w-full my-8">
+            <h2 className="text-2xl font-bold text-center mx-auto my-8">
                 Messages
             </h2>
-            {content}
+            <div className="flex flex-wrap justify-center mx-auto">
+                {content}
+            </div>
         </section>
     );
     

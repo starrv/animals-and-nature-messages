@@ -1,14 +1,18 @@
 import Image from 'next/image';
+import parse from 'html-react-parser';
 
 export default function Message({message}:{message:Message}){
+
+    console.log(message);
 
     function format(content:string){
         //format the email message so it is clear which data represents the text and images
         function parseContent(content:string){
             //look at String.prototype.match method
+            content=atob(content);
             const regex=/boundary=.*/gm
             const boundaries=content.match(regex);
-            if(boundaries?.length==0){
+            if(!boundaries || boundaries?.length==0){
                 return {plain:"",html:"",image:""};
             }
             else{
@@ -58,20 +62,21 @@ export default function Message({message}:{message:Message}){
         }
 
         const parsedContents=parseContent(content);
-        const text=parsedContents?.plain;
+        const html=parsedContents?.html;
+        const text=html ? html : parsedContents?.plain;
         const image=parsedContents?.image;
         
         return(
-            <div className="message-content">
-                {text ? <p>{atob(text)}</p> : "<p className='error-msg'>An error has occurred.  Please contact IT Support</p>"}
-                {(text && image) ? <Image  width="250" height="250" placeholder={`data:image/png;base64,${image}`} src={`data:image/png;base64,${image}`} blurDataURL={`data:image/png;base64,${image}`} alt="user supplied image" /> : null}
-            </div>
+            <>
+                {text ? <div className='text-center mx-auto'>{parse(atob(text))}</div> : "<p className='text-red-500 text-center mx-auto'>An error has occurred.  Please contact IT Support</p>"}
+                {(text && image) ? <Image className='text-center mx-auto border rounded'  width="250" height="250" placeholder={`data:image/png;base64,${image}`} src={`data:image/png;base64,${image}`} blurDataURL={`data:image/png;base64,${image}`} alt="user supplied image" /> : null}
+            </>
         );
     }
 
     return(
-        <article className="mx-auto my-8 border rounded p-4">
-            <p className="break-all">
+        <article className="mx-4 my-4 border rounded p-4">
+            <p>
                 {format(message.content)}
             </p>
         </article>

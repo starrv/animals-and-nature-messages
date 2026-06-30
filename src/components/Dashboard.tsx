@@ -15,10 +15,12 @@ export default async function Dashboard(){
     return(
         <>
             <Header />
-            <main>
-                <h1 className="text-3xl font-bold text-center m-4">
-                    Dashboard
-                </h1>
+            <main className="m-8">
+                <header className="m-8">
+                    <h1 className="text-3xl font-bold text-center">
+                        Dashboard
+                    </h1>
+                </header>
                 <Messages />
             </main>
         </>
