@@ -1,4 +1,4 @@
 # Animals and Nature Messages
 
 This is an adminstrator dashboard, Animals and Nature Messages, where administrators could login and read customer feedback pertaining to Animals and Nature.  You would need an adminstrator account to view messages.  A Next.js application provides the user interface and OpenID Connect was used for authentication.  This application was deployed on Vercel.  Currently working on updates to the application.  Updates should be coming soon.
-In the meantime, checkout the Animals and Nature GitHub repository for a demonstration via this link: https://github.com/starrv/animals-and-nature
+In the meantime, checkout the Animals and Nature GitHub repository for a demonstration via this link: https://github.com/starrv/animals-and-nature.
