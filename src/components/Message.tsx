@@ -67,7 +67,7 @@ export default function Message({message}:{message:Message}){
         
         return(
             <>
-                {text ? <p className='text-center mx-auto'>{parse(atob(text))}</p> : "<p className='text-red-500 text-center mx-auto'>An error has occurred.  Please contact IT Support</p>"}
+                {text ? <section className='text-center mx-auto'>{parse(atob(text))}</section> : "<section className='text-red-500 text-center mx-auto'>An error has occurred.  Please contact IT Support</section>"}
                 {(text && image) ? <Image className='text-center mx-auto border rounded'  width="250" height="250" placeholder={`data:image/png;base64,${image}`} src={`data:image/png;base64,${image}`} blurDataURL={`data:image/png;base64,${image}`} alt="user supplied image" /> : null}
             </>
         );
@@ -80,9 +80,7 @@ export default function Message({message}:{message:Message}){
             <p className='text-center mx-auto'>
                 <span className='font-bold'>Date</span>: {date}
             </p>
-            <section>
-                {format(message.content)}
-            </section>
+            {format(message.content)}
         </article>
     )
 }

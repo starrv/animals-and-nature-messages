@@ -7,6 +7,8 @@ import Sort from './Sort';
 import Search from './Search';
 import { ASCENDING_DATE } from './Sort';
 import {parseContent} from '@/components/Message';
+import Error from './Error';
+import { defaultErrorMsg } from './Error';
 
 export default function Messages({
     messages,
@@ -16,7 +18,14 @@ export default function Messages({
     const allMessages=use(messages);
     const [searchBy,setSearchBy]=useState("");
     const [sortBy,setSortBy]=useState(ASCENDING_DATE);
-    
+
+    if(!allMessages){
+        const error={error: {defaultErrorMsg}};
+        return(
+            <Error error={error} />
+        );
+    }
+
     if(allMessages.length<=0){
         return(
             <section>
